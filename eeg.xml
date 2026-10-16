@@ -112,7 +112,7 @@
   <components>
     <comp ref="C80">
       <value>9pF</value>
-      <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/" tstamps="/"/>
@@ -120,7 +120,7 @@
     </comp>
     <comp ref="C81">
       <value>9pF</value>
-      <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/" tstamps="/"/>
@@ -135,7 +135,7 @@
       <tstamp>5F7E3EF2</tstamp>
     </comp>
     <comp ref="C1">
-      <value>10uF</value>
+      <value>1nF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
@@ -543,7 +543,7 @@
     </comp>
     <comp ref="C62">
       <value>100uF</value>
-      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <footprint>TCA1C106M8R:RESC3216X65N</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1035,8 +1035,8 @@
       <tstamp>5F52BF03</tstamp>
     </comp>
     <comp ref="C42">
-      <value>2.2uF</value>
-      <footprint>Capacitor_Tantalum_SMD:CP_EIA-1608-08_AVX-J_Pad1.25x1.05mm_HandSolder</footprint>
+      <value>4.7uF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1150,7 +1150,7 @@
     </comp>
     <comp ref="R31">
       <value>270</value>
-      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>~</datasheet>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1364,8 +1364,8 @@
         <pin num="14" name="IN2P" type="input"/>
         <pin num="15" name="IN1N" type="input"/>
         <pin num="16" name="IN1P" type="input"/>
-        <pin num="17" name="TESTP_PACE_OUT1" type="passive"/>
-        <pin num="18" name="TESTP_PACE_OUT2" type="passive"/>
+        <pin num="17" name="SRB1" type="passive"/>
+        <pin num="18" name="SRB2" type="passive"/>
         <pin num="19" name="AVDD" type="power_in"/>
         <pin num="20" name="AVSS" type="power_in"/>
         <pin num="21" name="AVDD" type="power_in"/>
@@ -1407,10 +1407,10 @@
         <pin num="57" name="AVSS" type="power_in"/>
         <pin num="58" name="AVSS" type="power_in"/>
         <pin num="59" name="AVDD" type="power_in"/>
-        <pin num="60" name="RLDREF" type="input"/>
-        <pin num="61" name="RLDINV" type="input"/>
-        <pin num="62" name="RLDIN" type="input"/>
-        <pin num="63" name="RLDOUT" type="output"/>
+        <pin num="60" name="BIASREF" type="input"/>
+        <pin num="61" name="BIASINV" type="input"/>
+        <pin num="62" name="BIASIN" type="input"/>
+        <pin num="63" name="BIASOUT" type="output"/>
         <pin num="64" name="WCT" type="output"/>
       </pins>
     </libpart>
@@ -1702,14 +1702,12 @@
       <node ref="U1" pin="32"/>
       <node ref="U2" pin="50"/>
       <node ref="U2" pin="48"/>
-      <node ref="U1" pin="63"/>
       <node ref="U1" pin="64"/>
       <node ref="HC7361" pin="4"/>
       <node ref="C67" pin="1"/>
       <node ref="C61" pin="1"/>
       <node ref="C73" pin="1"/>
       <node ref="C72" pin="1"/>
-      <node ref="U1" pin="12"/>
       <node ref="U1" pin="13"/>
       <node ref="R28" pin="2"/>
       <node ref="U1" pin="19"/>
@@ -1720,6 +1718,8 @@
       <node ref="C58" pin="1"/>
       <node ref="C75" pin="2"/>
       <node ref="U1" pin="1"/>
+      <node ref="U12" pin="4"/>
+      <node ref="U12" pin="5"/>
     </net>
     <net code="8" name="Net-(C83-Pad1)">
       <node ref="U1" pin="7"/>
@@ -1877,9 +1877,6 @@
     <net code="43" name="Net-(U2-Pad64)">
       <node ref="U2" pin="64"/>
     </net>
-    <net code="44" name="Net-(U2-Pad18)">
-      <node ref="U2" pin="18"/>
-    </net>
     <net code="45" name="/BIASINV">
       <node ref="U2" pin="61"/>
       <node ref="J7" pin="1"/>
@@ -1922,9 +1919,6 @@
     <net code="53" name="Net-(C20-Pad2)">
       <node ref="C20" pin="2"/>
     </net>
-    <net code="54" name="Net-(U12-Pad9)">
-      <node ref="U12" pin="9"/>
-    </net>
     <net code="55" name="Net-(U12-Pad8)">
       <node ref="U12" pin="8"/>
     </net>
@@ -1932,12 +1926,7 @@
       <node ref="R31" pin="2"/>
       <node ref="U12" pin="6"/>
       <node ref="U12" pin="7"/>
-    </net>
-    <net code="57" name="Net-(U12-Pad5)">
-      <node ref="U12" pin="5"/>
-    </net>
-    <net code="58" name="Net-(U12-Pad4)">
-      <node ref="U12" pin="4"/>
+      <node ref="U12" pin="9"/>
     </net>
     <net code="59" name="Net-(U12-Pad24)">
       <node ref="U12" pin="24"/>
@@ -2125,6 +2114,8 @@
       <node ref="SW3" pin="3"/>
       <node ref="D1" pin="1"/>
       <node ref="U1" pin="31"/>
+      <node ref="U1" pin="12"/>
+      <node ref="U1" pin="63"/>
       <node ref="C83" pin="2"/>
       <node ref="SW3" pin="1"/>
       <node ref="J5" pin="10"/>
@@ -2342,6 +2333,7 @@
     <net code="133" name="/SRB2">
       <node ref="R19" pin="2"/>
       <node ref="C19" pin="2"/>
+      <node ref="U2" pin="18"/>
     </net>
     <net code="134" name="/CIN8P">
       <node ref="R3" pin="1"/>
